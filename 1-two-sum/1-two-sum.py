@@ -5,20 +5,16 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        pos1 = 0
-        pos2 = 1
+        d = {}
+        index = 0
         
-        found = False
-        for i in range(len(nums)):
-            if found:
-                break
-            if nums[i] > target and target > 0:
-                continue
-            for j in range(len(nums)):
-                if nums[i] + nums[j] == target and i != j:
-                    pos1 = i
-                    pos2 = j
-                    found = True
-                    break
-        return [pos1, pos2]
-        
+        for i in nums:
+            tgt = target - i
+            
+            if tgt in d:
+                return [index, d[tgt]]
+            d[i] = index
+            index += 1
+
+        return None # no solution
+            
