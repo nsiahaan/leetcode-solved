@@ -3,6 +3,10 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
+        nums1[m:] = nums2 # set the latter m half of nums1 to nums2, then sort()
+        nums1.sort()
+        
+        '''
         merged = []
         
         p1, p2 = 0, 0
@@ -24,3 +28,4 @@ class Solution:
             
         for i in range(len(merged)): # replace the values in nums1
             nums1[i] = merged[i]
+        '''
